@@ -1,0 +1,41 @@
+How to Run the Linux partition from the Windows partition:
+
+1. Open Windows partition
+
+2. Open command line as an administrator
+
+3. Determine the drives as well as the partitions used by Linux using Disk Manager
+
+4. Change directories so that your path ends in VirtualBox 
+	i.e. C:\Program Files\Oracle\VirtualBox
+
+5.Use the command:
+
+	VBoxManage internalcommands createrawvmdk -filename \path\to\file.vmdk -rawdisk \\.\PhysicalDrive# -partitions 
+	+
+ Replace # with whatever the drive number is that you are making a vmdk of and replace + with whichever partitions
+ Linux uses separated by commas.
+
+6. Open VirtualBox as an administrator
+
+7. Click New and use Ubuntu 64-bit and click next
+
+8. Change the RAM size to what is needed and click next
+
+9. Click "Use an existing virtual hard disk file
+
+10. Click the folder on the left of the drop down
+
+11. Click "Add"
+
+12. Go to where the vmdk you made was saved and choose that file
+
+13. Click Create
+
+14. Choose the new Virtual Machine and click Settings and Choose Storage
+
+15. Choose the "Controller: IDE" and on the right check the box that says "Use Host I/O Cache"
+
+16. Ensure that "Enable EFI (special OSes only) is checked.
+
+17. Run your Virtual Machine
